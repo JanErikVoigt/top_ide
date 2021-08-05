@@ -18,7 +18,7 @@ while running:
 
     button = boo.Button((100,100),"hello World!", fontmanager.getFont("regular"))
 
-    boolLogicSurface = BooleanLogicBlock("(((a)∨(b))∧((¬(c))→((d)∨(b))))")
+    boolLogicSurface = BooleanLogicBlock("(((a)∨(b))∧((¬(c))→((d)∨(b))))", fontmanager.getFont("regular"))
     screen.blit(boolLogicSurface.getImg(),(30,130))
 
     screen.blit(button.draw(),(0,0))
