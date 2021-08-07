@@ -1,7 +1,12 @@
 import pygame
 
 
+
+
+
 class Surface:
+
+
 
     def __init__(self, rect, parent = None):
         self.parent = parent
@@ -10,6 +15,11 @@ class Surface:
         self.img = None
         self.rect = rect
         self.state = {"hovered": False}
+        self.design = {"background col": pygame.Color(22, 22, 22),  # todo put at one pos?
+                       "hovered col": pygame.Color(24, 24, 24),
+                       "clicked col": pygame.Color(42, 42, 42),
+                  }
+
 
     def set_parent(self, parent):
         self.parent = parent
@@ -32,10 +42,10 @@ class Surface:
     def draw(self):
         img = pygame.Surface(self.get_rect())
         if self.state["hovered"]:
-            #img.fill(pygame.Color(42, 42, 42))
-            img.fill(pygame.Color(24, 24, 24))
+            img.fill(self.design["hovered col"])
         else:
-            img.fill(pygame.Color(22, 22, 22))
+            img.fill(self.design["background col"])
+
 
         for pos, surf in self.sub_surfaces:
             img.blit(surf.getImg() ,pos)
