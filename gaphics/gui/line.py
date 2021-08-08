@@ -1,11 +1,6 @@
 import pygame
 
-from top_ide.gaphics.gui.fixedsizesurface import Surface
-
-
-
-
-
+from top_ide.gaphics.gui.fixedsizesurface import Surface, FixedPosSubsSurface
 
 
 class Line(Surface):
@@ -16,7 +11,7 @@ class Line(Surface):
         self.design["hovered col"] = pygame.Color(16, 16, 16)
 
 
-class LineSurface(Surface):
+class LineSurface(FixedPosSubsSurface):
 
     def __init__(self, rect, parent=None):
         super().__init__(rect, parent)
@@ -26,8 +21,8 @@ class LineSurface(Surface):
     def add_line(self, line: Line):
         pos = None
         if len(self.sub_surfaces) > 0:
-            last_y = self.sub_surfaces[-1][0][1]
-            new_y = last_y + self.sub_surfaces[-1][1].get_rect()[1] + 2
+            last_y = self.get_pos_of_subsurf(-1)[0]
+            new_y = last_y + self.sub_surfaces[-1].get_rect()[1] + 2
             pos = (2, new_y)
         else:
             pos = (2, 2)

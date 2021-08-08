@@ -14,7 +14,7 @@ class FontContent(Content):
     def render(self, text:str):
         image = PIL.Image.new('RGBA', (100, 100))
         draw = ImageDraw.Draw(image)
-        draw.text((0, 0), "𝘧𝘦 f 𝒇 𝑓𝑖𝑔:", fill=(200, 200, 200, 255),
+        draw.text((0, 0), "Σ𝘧∫𝘦 f 𝒇｛ 𝑓𝑖𝑔:", fill=(200, 200, 200, 255),
                   font=ImageFont.truetype('data/fonts/latin modern math/latinmodern-math.otf', 20))
 
         mode = image.mode
