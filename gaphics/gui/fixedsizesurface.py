@@ -38,6 +38,21 @@ class Surface:
         self.rect = new_rect
         self.state_changed()
 
+    def sub_inside_surface(self, sub):
+        pos = None
+        for p,s in self.sub_surfaces:
+            if s == sub:
+                pos = p
+        if pos is None:
+            return None
+        rec = sub.get_rect()
+
+        if pos[0] > self.rect[0] or pos[1] > self.rect[1]:
+            return False
+        if pos[0]+rec[0] < 0 or pos[1] + rec[1] < 0:
+            return False
+        return True
+
 
     def draw(self):
         img = pygame.Surface(self.get_rect())
@@ -48,7 +63,8 @@ class Surface:
 
 
         for pos, surf in self.sub_surfaces:
-            img.blit(surf.getImg() ,pos)
+            if self.sub_inside_surface(surf):
+                img.blit(surf.getImg() ,pos)
 
         return img
 
@@ -67,9 +83,10 @@ class Surface:
     def what_is_below(self, position):
         if 0 <= position[0] <= self.get_rect()[0] and 0 <= position[1] <= self.get_rect()[1]:
             for pos, sub in self.sub_surfaces:
-                hovered = sub.what_is_below((position[0]-pos[0],position[1]-pos[1]))
-                if hovered is not None:
-                    return hovered
+                if self.sub_inside_surface(sub):
+                    hovered = sub.what_is_below((position[0]-pos[0],position[1]-pos[1]))
+                    if hovered is not None:
+                        return hovered
             return self
         return None
 

@@ -4,7 +4,7 @@ from fonts.font_manager import FontManager
 from top_ide.gaphics.gui.BooleanLogicField import BooleanLogicBlock
 from top_ide.gaphics.gui.fixedsizesurface import Surface
 from top_ide.gaphics.gui.latex_render import LatexRenderer
-from top_ide.gaphics.gui.line import Line
+from top_ide.gaphics.gui.line import Line, LineSurface
 
 pygame.init()
 screen = pygame.display.set_mode((700,400))
@@ -13,10 +13,24 @@ running = True
 fontmanager = FontManager()
 
 
-main_surf = Surface((680,380))
-main_surf.add_sub_surface(Line((500,30)),(4,4))
-main_surf.add_sub_surface(Line((500,30)),(4,36))
-main_surf.add_sub_surface(LatexRenderer((500,30)),(4,68))
+main_surf = Surface((698,400))
+
+line_surf = LineSurface((600,190))
+
+main_surf.add_sub_surface(line_surf,(5,55))
+
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+line_surf.add_line(Line((500,30)))
+
+
+
+#main_surf.add_sub_surface(LatexRenderer((500,30)),(4,68))
 
 
 state = {"mouse pos": (0,0),
