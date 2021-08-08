@@ -1,7 +1,7 @@
-from top_ide.gaphics.gui.content.content import Content
+from top_ide.gaphics.gui.content.content import Content, ContentRenderer
 
 
-class FunctionRenderer(Content):
+class FunctionRenderer(ContentRenderer):
 
 
     def __init__(self):

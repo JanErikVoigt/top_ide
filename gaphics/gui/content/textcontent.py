@@ -1,11 +1,11 @@
-from top_ide.gaphics.gui.content.content import Content
+from top_ide.gaphics.gui.content.content import Content, ContentRenderer
 import PIL
 import pygame
 from PIL import ImageFont, ImageDraw
 
 
 
-class FontContent(Content):
+class FontContent(ContentRenderer):
 
     def __init__(self):
         super().__init__()

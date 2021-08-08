@@ -1,6 +1,6 @@
 import pygame
 
-from top_ide.gaphics.gui.fixedsizesurface import Surface
+from top_ide.gaphics.gui.surface import Surface
 
 
 class BackgroundSurface(Surface):

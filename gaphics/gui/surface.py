@@ -13,6 +13,7 @@ class Surface:
         self.design = {"background col": pygame.Color(22, 22, 22),  # todo put at one pos?
                        "hovered col": pygame.Color(24, 24, 24),
                        "clicked col": pygame.Color(42, 42, 42),
+                       "background transparent": False,
                        }
 
     def set_parent(self, parent):
@@ -48,10 +49,11 @@ class Surface:
 
     def draw(self):
         img = pygame.Surface(self.get_rect())
-        if self.state["hovered"]:
-            img.fill(self.design["hovered col"])
-        else:
-            img.fill(self.design["background col"])
+        if not self.design["background transparent"]:
+            if self.state["hovered"]:
+                img.fill(self.design["hovered col"])
+            else:
+                img.fill(self.design["background col"])
 
         for i, surf in enumerate(self.sub_surfaces):
             if self.sub_inside_surface(i):

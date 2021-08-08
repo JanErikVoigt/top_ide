@@ -1,6 +1,6 @@
 import pygame
 import ast
-from top_ide.gaphics.gui.fixedsizesurface import FreeSizeSurface
+from top_ide.gaphics.gui.surface import FreeSizeSurface
 import re
 
 # todo rename to BooleanLogicBlock

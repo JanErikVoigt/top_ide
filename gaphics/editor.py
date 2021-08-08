@@ -2,7 +2,7 @@ import pygame
 import gui.button as boo #todo remove
 from fonts.font_manager import FontManager
 from top_ide.gaphics.gui.BooleanLogicField import BooleanLogicBlock
-from top_ide.gaphics.gui.fixedsizesurface import Surface, FixedPosSubsSurface
+from top_ide.gaphics.gui.surface import Surface, FixedPosSubsSurface
 from top_ide.gaphics.gui.line import Line, LineSurface
 from top_ide.gaphics.gui.lines.function_definition import FunctionDefinition
 
@@ -19,7 +19,9 @@ line_surf = LineSurface((600,190))
 
 main_surf.add_sub_surface(line_surf,(5,55))
 
-line_surf.add_line(FunctionDefinition((500,30),fontmanager))
+line1 = Line((500,30))
+line_surf.add_line(line1)
+line1.add_sub_surface(FunctionDefinition((500,30), fontmanager),(0,0))
 
 line_surf.add_line(Line((500,30)))
 line_surf.add_line(Line((500,30)))

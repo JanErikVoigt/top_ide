@@ -1,5 +1,8 @@
 import pygame
-from top_ide.gaphics.gui.fixedsizesurface import FixedSizeSurface
+from top_ide.gaphics.gui.surface import FixedSizeSurface, Surface
+
+
+
 
 
 class Button(FixedSizeSurface):
