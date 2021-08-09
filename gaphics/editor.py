@@ -2,7 +2,7 @@ import pygame
 import gui.button as boo #todo remove
 from fonts.font_manager import FontManager
 from top_ide.gaphics.gui.BooleanLogicField import BooleanLogicBlock
-from top_ide.gaphics.gui.block.blockrenderer import BlockRendererManager
+from top_ide.gaphics.gui.block.blockrenderer import BlockRendererManager, DefinitionBlockRenderer
 from top_ide.gaphics.gui.content.textcontent import TextContentInternal
 from top_ide.gaphics.gui.surface import Surface, FixedPosSubsSurface
 from top_ide.gaphics.gui.line import Line, LineSurface
@@ -12,12 +12,10 @@ pygame.init()
 screen = pygame.display.set_mode((700,400))
 running = True
 
-#fontmanager = FontManager()
 
 
-blockrenderermanager = BlockRendererManager()
+BlockRendererManager().get_instance().renderers.append(DefinitionBlockRenderer())
 
-#contentrenderermanager.add_content_renderer(TextContentInternal(),"definition")
 
 
 main_surf = FixedPosSubsSurface((698,400))

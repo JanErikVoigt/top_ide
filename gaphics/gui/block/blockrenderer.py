@@ -12,7 +12,17 @@ class BlockRenderer:
 
 class BlockRendererManager:
 
+    __instance = None
+
+    @staticmethod
+    def get_instance():
+        if BlockRendererManager.__instance is None:
+            BlockRendererManager.__instance = BlockRendererManager()
+        return BlockRendererManager.__instance
+
     def __init__(self):
+        if BlockRendererManager.__instance is not None:
+            raise Exception("This class is a singleton!")
         self.renderers = []
 
 
